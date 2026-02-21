@@ -14,6 +14,7 @@ def lambda_handler(event, context):
         name = body.get('name')
         query = body.get('query')
 
+
         if not email or not query:
             return {
                 'statusCode' : 400,
