@@ -30,13 +30,29 @@ resource "aws_api_gateway_integration" "lambda_integration" {
 }
 
 resource "aws_api_gateway_deployment" "contact_deployment" {
-    rest_api_id = aws_api_gateway_rest_api.contact_api.id
-    depends_on = [
+  rest_api_id = aws_api_gateway_rest_api.contact_api.id
+
+  triggers = {
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.contact_resource.id,
+      aws_api_gateway_method.contact_post.id,
+      aws_api_gateway_integration.lambda_integration.id,
+      aws_api_gateway_method.options.id,
+      aws_api_gateway_integration.options.id,
+      aws_api_gateway_integration_response.options.id,
+    ]))
+  }
+
+  depends_on = [
     aws_api_gateway_method.contact_post,
     aws_api_gateway_integration.lambda_integration,
     aws_api_gateway_method.options,
     aws_api_gateway_integration_response.options,
   ]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_api_gateway_stage" "contact_stage" {
