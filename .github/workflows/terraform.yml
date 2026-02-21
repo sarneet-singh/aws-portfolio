@@ -1,0 +1,54 @@
+name: Terraform
+on:
+  push:
+    branches: [main]
+    paths: ['terraform/**']
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Initialize Terraform
+        run: |
+          terraform init \
+            -backend-config="bucket=${{ secrets.TF_BACKEND_BUCKET }}" \
+            -backend-config="key=${{ secrets.TF_BACKEND_KEY }}" \
+            -backend-config="region=${{ secrets.TF_BACKEND_REGION }}"
+
+      - name: Terraform Plan
+        run: terraform plan
+        env:
+          TF_VAR_project_name: ${{ secrets.TF_VAR_PROJECT_NAME }}
+          TF_VAR_environment: ${{ secrets.TF_VAR_ENVIRONMENT }}
+          TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
+          TF_VAR_s3_bucket_name: ${{ secrets.TF_VAR_BUCKET_NAME }}
+          TF_VAR_acm_certificate_arn: ${{ secrets.TF_VAR_ACM_CERT_ARN }}
+          TF_VAR_dynamodb_table_name: ${{ secrets.TF_VAR_DYNAMODB_TABLE_NAME }}
+          TF_VAR_lambda_function_name: ${{ secrets.TF_VAR_LAMBDA_FUNCTION_NAME }}
+      
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        env:
+          TF_VAR_project_name: ${{ secrets.TF_VAR_PROJECT_NAME }}
+          TF_VAR_environment: ${{ secrets.TF_VAR_ENVIRONMENT }}
+          TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
+          TF_VAR_s3_bucket_name: ${{ secrets.TF_VAR_BUCKET_NAME }}
+          TF_VAR_acm_certificate_arn: ${{ secrets.TF_VAR_ACM_CERT_ARN }}
+          TF_VAR_dynamodb_table_name: ${{ secrets.TF_VAR_DYNAMODB_TABLE_NAME }}
+          TF_VAR_lambda_function_name: ${{ secrets.TF_VAR_LAMBDA_FUNCTION_NAME }}
+      

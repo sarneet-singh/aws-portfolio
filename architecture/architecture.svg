@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560">
+
+  <rect width="960" height="560" fill="#0a0a0f"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#111118" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="560" fill="url(#grid)"/>
+
+  <text x="480" y="44" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold" font-family="Georgia, serif" letter-spacing="1">3-Tier Serverless Architecture</text>
+  <text x="480" y="64" text-anchor="middle" fill="#4ade80" font-size="11" font-family="monospace" letter-spacing="3">AWS PORTFOLIO — sarneet.com</text>
+
+  <!-- Tier bands -->
+  <rect x="30" y="90" width="900" height="140" rx="6" fill="#0d0d14" stroke="#1e1e2e" stroke-width="1"/>
+  <text x="48" y="108" fill="#4ade80" font-size="9" font-family="monospace" letter-spacing="3">TIER 1 — FRONTEND</text>
+
+  <rect x="30" y="250" width="900" height="140" rx="6" fill="#0d0d14" stroke="#1e1e2e" stroke-width="1"/>
+  <text x="48" y="268" fill="#4ade80" font-size="9" font-family="monospace" letter-spacing="3">TIER 2 — BACKEND</text>
+
+  <rect x="30" y="410" width="900" height="110" rx="6" fill="#0d0d14" stroke="#1e1e2e" stroke-width="1"/>
+  <text x="48" y="428" fill="#4ade80" font-size="9" font-family="monospace" letter-spacing="3">TIER 3 — DATABASE</text>
+
+  <!-- USER -->
+  <rect x="55" y="118" width="100" height="90" rx="6" fill="#111118" stroke="#2a2a3e" stroke-width="1.5"/>
+  <text x="105" y="150" text-anchor="middle" fill="#6b6b80" font-size="26" font-family="monospace">◉</text>
+  <text x="105" y="172" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">User</text>
+  <text x="105" y="188" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Browser</text>
+
+  <!-- Arrow User to CloudFront -->
+  <line x1="155" y1="163" x2="215" y2="163" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="213,158 223,163 213,168" fill="#4ade80"/>
+  <text x="185" y="155" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">HTTPS</text>
+
+  <!-- CLOUDFRONT -->
+  <rect x="225" y="118" width="130" height="90" rx="6" fill="#111118" stroke="#4ade80" stroke-width="2"/>
+  <text x="290" y="148" text-anchor="middle" fill="#4ade80" font-size="24" font-family="monospace">◈</text>
+  <text x="290" y="170" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">CloudFront</text>
+  <text x="290" y="185" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">CDN + HTTPS</text>
+  <text x="290" y="199" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">OAC Signing</text>
+
+  <!-- Arrow CloudFront to S3 -->
+  <line x1="355" y1="163" x2="415" y2="163" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="413,158 423,163 413,168" fill="#4ade80"/>
+  <text x="385" y="155" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">OAC</text>
+
+  <!-- S3 -->
+  <rect x="425" y="118" width="130" height="90" rx="6" fill="#111118" stroke="#4ade80" stroke-width="2"/>
+  <text x="490" y="148" text-anchor="middle" fill="#4ade80" font-size="24" font-family="monospace">▣</text>
+  <text x="490" y="170" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">Amazon S3</text>
+  <text x="490" y="185" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Static Assets</text>
+  <text x="490" y="199" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Private Bucket</text>
+
+  <!-- ACM -->
+  <rect x="700" y="118" width="130" height="90" rx="6" fill="#111118" stroke="#2a2a3e" stroke-width="1.5"/>
+  <text x="765" y="148" text-anchor="middle" fill="#6b6b80" font-size="22" font-family="monospace">⚿</text>
+  <text x="765" y="170" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">ACM</text>
+  <text x="765" y="185" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">SSL Certificate</text>
+  <text x="765" y="199" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">us-east-1</text>
+  <line x1="700" y1="163" x2="355" y2="163" stroke="#2a2a3e" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- Arrow CloudFront down to API GW -->
+  <line x1="290" y1="208" x2="290" y2="278" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="285,276 290,286 295,276" fill="#4ade80"/>
+  <text x="308" y="248" fill="#4ade80" font-size="9" font-family="monospace">POST</text>
+
+  <!-- API GATEWAY -->
+  <rect x="225" y="288" width="130" height="90" rx="6" fill="#111118" stroke="#4ade80" stroke-width="2"/>
+  <text x="290" y="318" text-anchor="middle" fill="#4ade80" font-size="24" font-family="monospace">⊞</text>
+  <text x="290" y="340" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">API Gateway</text>
+  <text x="290" y="355" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">REST API</text>
+  <text x="290" y="369" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">POST /contact</text>
+
+  <!-- Arrow API GW to Lambda -->
+  <line x1="355" y1="333" x2="415" y2="333" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="413,328 423,333 413,338" fill="#4ade80"/>
+  <text x="385" y="325" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">PROXY</text>
+
+  <!-- LAMBDA -->
+  <rect x="425" y="288" width="130" height="90" rx="6" fill="#111118" stroke="#4ade80" stroke-width="2"/>
+  <text x="490" y="318" text-anchor="middle" fill="#4ade80" font-size="28" font-family="Georgia, serif">λ</text>
+  <text x="490" y="340" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">Lambda</text>
+  <text x="490" y="355" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Python 3.13</text>
+  <text x="490" y="369" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">contact_handler</text>
+
+  <!-- IAM -->
+  <rect x="580" y="288" width="110" height="90" rx="6" fill="#111118" stroke="#2a2a3e" stroke-width="1.5"/>
+  <text x="635" y="318" text-anchor="middle" fill="#6b6b80" font-size="22" font-family="monospace">⛨</text>
+  <text x="635" y="340" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">IAM Role</text>
+  <text x="635" y="355" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Write-Only</text>
+  <text x="635" y="369" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Least Privilege</text>
+  <line x1="580" y1="333" x2="555" y2="333" stroke="#2a2a3e" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- CLOUDWATCH -->
+  <rect x="710" y="288" width="120" height="90" rx="6" fill="#111118" stroke="#2a2a3e" stroke-width="1.5"/>
+  <text x="770" y="318" text-anchor="middle" fill="#6b6b80" font-size="22" font-family="monospace">≡</text>
+  <text x="770" y="340" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">CloudWatch</text>
+  <text x="770" y="355" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">Lambda Logs</text>
+  <text x="770" y="369" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">14-day retention</text>
+  <line x1="710" y1="333" x2="690" y2="333" stroke="#2a2a3e" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- Arrow Lambda down to DynamoDB -->
+  <line x1="490" y1="378" x2="490" y2="448" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="485,446 490,456 495,446" fill="#4ade80"/>
+  <text x="508" y="418" fill="#4ade80" font-size="9" font-family="monospace">PutItem</text>
+
+  <!-- DYNAMODB -->
+  <rect x="370" y="438" width="240" height="70" rx="6" fill="#111118" stroke="#4ade80" stroke-width="2"/>
+  <text x="490" y="464" text-anchor="middle" fill="#4ade80" font-size="22" font-family="monospace">⬡</text>
+  <text x="490" y="484" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" font-family="Georgia, serif">Amazon DynamoDB</text>
+  <text x="490" y="499" text-anchor="middle" fill="#6b6b80" font-size="10" font-family="monospace">PK: email  |  SK: timestamp</text>
+
+  <!-- LEGEND -->
+  <rect x="635" y="438" width="265" height="70" rx="6" fill="#111118" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="655" y1="462" x2="680" y2="462" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="692" y="466" fill="#e8e8f0" font-size="11" font-family="monospace">Primary data flow</text>
+  <line x1="655" y1="484" x2="680" y2="484" stroke="#2a2a3e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="692" y="488" fill="#6b6b80" font-size="11" font-family="monospace">Supporting service</text>
+
+</svg>

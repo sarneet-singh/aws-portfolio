@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Sarneet Singh Chitkara</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">SSC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h1 class="section-title">Let's talk.</h1>
+
+      <div class="contact-grid" style="margin-top:4rem;">
+
+        <div class="contact-info">
+          <h3>Open to opportunities</h3>
+          <p>
+            Exploring roles in Solutions Architecture, Technical Account Management,
+            and Cloud Engineering — in India and internationally. If you're working
+            on something interesting, reach out.
+          </p>
+
+          <div class="contact-detail">
+            <div class="contact-row">
+              <span class="contact-row-label">Location</span>
+              <span class="contact-row-val">India · Open to relocation</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">GitHub</span>
+              <span class="contact-row-val">
+                <a href="https://github.com/sarneet-singh" target="_blank" style="color:var(--accent); text-decoration:none;">github.com/sarneet-singh</a>
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">LinkedIn</span>
+              <span class="contact-row-val">
+                <a href="https://linkedin.com/in/sarneetsinghchitkara" target="_blank" style="color:var(--accent); text-decoration:none;">linkedin.com/in/sarneetsinghchitkara</a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div id="form-status" class="form-status"></div>
+
+          <form class="form" id="contact-form" onsubmit="return false;">
+            <div class="form-group">
+              <label class="form-label" for="name">Full name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="John Smith" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="query">Message</label>
+              <textarea class="form-textarea" id="query" name="query" placeholder="Tell me about the role or project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit-btn" onclick="submitForm()">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2025 Sarneet Singh Chitkara</span>
+  <div class="footer-links">
+    <a href="https://github.com/sarneet-singh" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/sarneetsinghchitkara" target="_blank">LinkedIn</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

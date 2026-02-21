@@ -1,0 +1,2 @@
+bucket_name = "your-actual-bucket-name"
+acm_certificate_arn = "acm_certificate_arn"
