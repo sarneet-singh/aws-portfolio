@@ -20,9 +20,10 @@ def lambda_handler(event, context):
                 'headers' : {
                     'Content-Type' : 'application/json',
                     'Access-Control-Allow-Origin' : '*'
-            },
-            'body' : json.dumps({'error': 'Email and message are required'})
-        timestamp = datetime.datetimeutcnow().isoformat()
+                },
+                'body' : json.dumps({'error': 'Email and message are required'})
+            }
+        timestamp = datetime.datetime.utcnow().isoformat()
         item = {
             'email': email,
             'name': name,
